@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace PeibinLaravel\RedisPool;
 
-use Illuminate\Console\Events\ArtisanStarting;
 use Illuminate\Support\ServiceProvider;
-use PeibinLaravel\RedisPool\Listeners\BootstrapListener;
-use PeibinLaravel\SwooleEvent\Events\BeforeMainServerStart;
-use PeibinLaravel\Utils\Providers\RegisterProviderConfig;
+use PeibinLaravel\ProviderConfig\Contracts\ProviderConfigInterface;
+use PeibinLaravel\RedisPool\Listeners\BootApplicationListener;
+use PeibinLaravel\RedisPool\Pool\PoolFactory;
+use PeibinLaravel\SwooleEvent\Events\BootApplication;
 
-class RedisPoolServiceProvider extends ServiceProvider
+class RedisPoolServiceProvider extends ServiceProvider implements ProviderConfigInterface
 {
-    use RegisterProviderConfig;
-
     public function __invoke(): array
     {
         return [
-            'listeners' => [
-                ArtisanStarting::class       => BootstrapListener::class,
-                BeforeMainServerStart::class => BootstrapListener::class,
+            'dependencies' => [
+                RedisFactory::class => RedisFactory::class,
+                PoolFactory::class  => PoolFactory::class,
+            ],
+            'listeners'    => [
+                BootApplication::class => BootApplicationListener::class,
             ],
         ];
     }

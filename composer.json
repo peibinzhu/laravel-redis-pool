@@ -17,8 +17,8 @@
         "php": ">=8.0",
         "peibin/laravel-context": "^1.0",
         "peibin/laravel-pool": "^1.0",
-        "peibin/laravel-swoole-event": "^1.0",
-        "peibin/laravel-utils": "^1.8"
+        "peibin/laravel-provider-config": "^1.0",
+        "peibin/laravel-swoole-event": "^1.0"
     },
     "autoload": {
         "psr-4": {
