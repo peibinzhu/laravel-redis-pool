@@ -20,7 +20,8 @@ use Throwable;
  */
 class RedisConnection extends BaseConnection implements ConnectionInterface
 {
-    use ScanCaller;
+    use Traits\ScanCaller;
+    use Traits\MultiExec;
 
     protected Connection | null $connection = null;
 

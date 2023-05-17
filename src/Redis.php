@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace PeibinLaravel\RedisPool;
 
 use PeibinLaravel\Context\Context;
+use PeibinLaravel\Coroutine\Coroutine;
 use PeibinLaravel\RedisPool\Exceptions\InvalidRedisConnectionException;
 use PeibinLaravel\RedisPool\Pool\PoolFactory;
-use Swoole\Coroutine;
 
 class Redis
 {
-    use ScanCaller;
+    use Traits\ScanCaller;
+    use Traits\MultiExec;
 
     protected string $poolName = 'default';
 

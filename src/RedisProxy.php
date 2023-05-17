@@ -6,6 +6,9 @@ namespace PeibinLaravel\RedisPool;
 
 use PeibinLaravel\RedisPool\Pool\PoolFactory;
 
+/**
+ * @mixin \Redis
+ */
 class RedisProxy extends Redis
 {
     public function __construct(PoolFactory $factory, string $pool)

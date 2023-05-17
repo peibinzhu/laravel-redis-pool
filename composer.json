@@ -4,8 +4,9 @@
     "license": "MIT",
     "keywords": [
         "php",
+        "swoole",
         "laravel",
-        "config-center"
+        "pool"
     ],
     "authors": [
         {
@@ -15,9 +16,9 @@
     ],
     "require": {
         "php": ">=8.0",
-        "peibin/laravel-context": "^1.0",
-        "peibin/laravel-pool": "^1.0",
-        "peibin/laravel-provider-config": "^1.0",
+        "peibin/laravel-context": "^2.0",
+        "peibin/laravel-coroutine": "^1.0",
+        "peibin/laravel-pool": "^2.0",
         "peibin/laravel-swoole-event": "^1.0"
     },
     "autoload": {

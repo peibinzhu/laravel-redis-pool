@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PeibinLaravel\RedisPool;
 
-use Swoole\Coroutine;
+use PeibinLaravel\Coroutine\Coroutine;
 
 class RedisManager extends \Illuminate\Redis\RedisManager
 {
@@ -33,6 +33,6 @@ class RedisManager extends \Illuminate\Redis\RedisManager
      */
     protected function isPoolConnection(string $name): bool
     {
-        return Coroutine::getCid() > 0 && isset($this->config[$name]['pool']);
+        return Coroutine::id() > 0 && isset($this->config[$name]['pool']);
     }
 }

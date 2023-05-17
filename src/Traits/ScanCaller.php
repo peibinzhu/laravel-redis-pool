@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PeibinLaravel\RedisPool;
+namespace PeibinLaravel\RedisPool\Traits;
 
 trait ScanCaller
 {
